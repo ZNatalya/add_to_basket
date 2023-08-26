@@ -20,7 +20,11 @@ let order = [];
 
 // Добавление товара в корзину
 function addToBasket(productId) {
-
+    // проверяет добавлен ли в корзину
+    if (order.find(el => el.id === productId)) return alert('Товар уже в корзине');
+    // добавляет в корзину
+    const product = products.find((item)=> item.id === productId);
+    order = [...order, product];
 
     renderCart();
     renderTotalPrice();
@@ -28,6 +32,7 @@ function addToBasket(productId) {
 
 // удаление
 function removeFormBasket(productId) {
+    order = order.filter(item => item.id !== productId);
 
     renderCart();
     renderTotalPrice();
@@ -35,6 +40,9 @@ function removeFormBasket(productId) {
 
 // перерасчет общей стоимости
 function renderTotalPrice(productId) {
+    const totalPrice = order.reduce((acc, item) => {
+        return acc + item.price;
+    }, 0);
 
     document.getElementById('total').innerText = totalPrice;
 }

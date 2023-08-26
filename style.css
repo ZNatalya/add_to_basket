@@ -1,0 +1,19 @@
+.shop {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.product {
+    margin: 50px;
+}
+
+p {
+    color: #ff0066;
+}
+
+button {
+    height: 25px;
+    width: 40px;
+    border: 1px solid #9fe338;
+    background: greenyellow;
+}
